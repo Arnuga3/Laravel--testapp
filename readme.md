@@ -9,7 +9,7 @@
 <p>php artisan make:model Companies.php -m</p>
 <p>php artisan make:model Employees.php -m</p>
 <p>php artisan make:controller CompanyController --resource</p>
-<p>php artisan make:controller EmloyeeController --resource</p>
+<p>php artisan make:controller EmployeeController --resource</p>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
