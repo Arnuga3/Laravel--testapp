@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Basic Auth
 Route::get('/admin', function () {
     return view('admin.profile');
 })->middleware('auth.basic');
+
+// CRUD Routes
+Route::resources([
+    'companies' => 'CompanyController',
+    'employees' => 'EmployeeController'
+]);

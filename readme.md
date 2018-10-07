@@ -6,6 +6,10 @@
 <p>composer dump-autoload</p>
 <p>php artisan db:seed</p>
 <p>php artisan migrate:refresh --seed</p>
+<p>php artisan make:model Companies.php -m</p>
+<p>php artisan make:model Employees.php -m</p>
+<p>php artisan make:controller CompanyController --resource</p>
+<p>php artisan make:controller EmloyeeController --resource</p>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
