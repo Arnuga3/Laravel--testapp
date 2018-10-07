@@ -5,6 +5,7 @@
 <p>php artisan make:seeder UsersTableSeeder</p>
 <p>composer dump-autoload</p>
 <p>php artisan db:seed</p>
+<p>php artisan migrate:refresh --seed</p>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
