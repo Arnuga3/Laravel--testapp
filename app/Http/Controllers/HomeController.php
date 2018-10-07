@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Companies;
+use App\Employees;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalComp = Companies::count();
+        $totalEmpl = Employees::count();
+        return view('home', ['totalComp' => $totalComp, 'totalEmpl' => $totalEmpl]);
     }
 }

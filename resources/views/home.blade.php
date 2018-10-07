@@ -14,7 +14,17 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="{{ route('companies.index') }}">{{ __('Companies') }}</a>
+                            <span class="badge badge-primary badge-pill">{{ $totalComp }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
+                            <span class="badge badge-primary badge-pill">{{ $totalEmpl }}</span>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </div>
