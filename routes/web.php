@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('home');
+    return view('admin.profile');
 })->middleware('auth.basic');
