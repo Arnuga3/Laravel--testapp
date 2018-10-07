@@ -20,8 +20,9 @@ class CreateEmployeesTable extends Migration
             $table->integer('company')->unsigned();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->foreign('company')->references('id')->on('companies');
             $table->timestamps();
+            // Foreign key
+            $table->foreign('company')->references('id')->on('companies');
         });
     }
 
