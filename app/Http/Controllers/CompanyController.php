@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Companies;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class CompanyController extends Controller
 {
@@ -14,7 +16,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('companies.index');
+        $companies = Companies::paginate(10);
+        return view('companies.index', ['companies' => $companies]);
     }
 
     /**
@@ -42,12 +45,11 @@ class CompanyController extends Controller
             'company_website' => 'nullable|url'
         ]);
 
-        $imageName = request()->company_name . time().'.'.request()->company_logo->getClientOriginalExtension();
-        request()->company_logo->move(public_path('images'), $imageName);
+        $path = Storage::putFile('', new File(request()->company_logo));
 
         $company = new Companies([
             'name' => $request->get('company_name'),
-            'logo'=> $imageName,
+            'logo'=> $path,
             'email'=> $request->get('company_email'),
             'website'=> $request->get('company_website')
         ]);
