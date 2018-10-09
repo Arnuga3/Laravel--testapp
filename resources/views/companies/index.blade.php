@@ -3,23 +3,33 @@
 @section('content')
 <div class="container">
     
-    <h3>A list of Companies!</h3>
+    <h3>A list of Companies</h3>
 
-    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">{{ __('Add new') }}</a>
+    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 mb-2" role="button" aria-pressed="true">{{ __('Add new') }}</a>
 
-    <div class="list-group">
     @foreach ($companies as $company)
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ $company->name }}</h5>
+        <div class="d-flex bg-white border-bottom">
+            <div class="p-2 flex-shrink-1 align-self-center">
+                <div class="imageWrapper rounded">
+                    @if( empty($company->logo ))
+                        <span class="lnr lnr-picture text-secondary"></span>
+                    @else
+                        <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }}" />
+                    @endif
+                </div>
             </div>
-            <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }}" />
-            <p class="mb-1">{{ $company->website }}</p>
-            <small>{{ $company->email }}
-        </a>
+            <div class="p-2 w-100 d-flex flex-column align-self-center">
+                <h5>{{ $company->name }}</h5>
+                <small class="text-secondary">Website: <a href="{{ $company->website }}">{{ $company->website }}</a></small>
+                <small><span class="text-secondary">Email: </span><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></small>
+            </div>
+            <div class="d-flex align-items-end flex-column">
+                <p class="ml-auto pr-3 pt-3 text-danger"><span class="lnr lnr-trash"></span></p>
+                <p class="mt-auto pr-3 text-secondary"><span class="lnr lnr-pencil"></span></p>
+            </div>
+        </div>
     @endforeach
-    </div>
 
-    {{ $companies->links() }}
+    <p>{{ $companies->links() }}</p>
 <div>
 @endsection

@@ -45,7 +45,7 @@ class CompanyController extends Controller
             'company_website' => 'nullable|url'
         ]);
 
-        $path = Storage::putFile('', new File(request()->company_logo));
+        $path = is_null(request()->company_logo) ? request()->company_logo : Storage::putFile('', new File(request()->company_logo));
 
         $company = new Companies([
             'name' => $request->get('company_name'),

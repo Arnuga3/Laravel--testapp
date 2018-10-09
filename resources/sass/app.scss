@@ -12,3 +12,24 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+$imgSize: 75px;
+
+.imageWrapper {
+	background-color: rgba(0,0,0,.05);
+	height: $imgSize;
+	width: $imgSize;
+	margin: 3px;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: $imgSize;
+    max-height: $imgSize;
+  }
+}
+
+.lnr {
+  font-size: 1.2em;
+}
