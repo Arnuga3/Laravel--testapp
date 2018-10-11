@@ -5,6 +5,10 @@
     
     <h3>A list of Companies</h3>
 
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success" role="alert">{{ $message }}</div>
+    @endif
+
     <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 mb-2" role="button" aria-pressed="true">{{ __('Add new') }}</a>
 
     @foreach ($companies as $company)
@@ -24,8 +28,12 @@
                 <small><span class="text-secondary">Email: </span><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></small>
             </div>
             <div class="d-flex align-items-end flex-column">
-                <p class="ml-auto pr-3 pt-3 text-danger"><span class="lnr lnr-trash"></span></p>
-                <p class="mt-auto pr-3 text-secondary"><span class="lnr lnr-pencil"></span></p>
+                <form class="mt-2" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn mt-auto text-danger"><span class="lnr lnr-trash"></span></button>
+                </form>
+                <a class="btn mt-auto text-secondary" href="{{ route('companies.edit', ['id' => $company->id]) }}"><span class="lnr lnr-pencil"></span></a>
             </div>
         </div>
     @endforeach

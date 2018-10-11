@@ -26,6 +26,9 @@ Route::resources([
     'employees' => 'EmployeeController'
 ]);
 
+// Additional route to delete an image - more like tmp solution to avoid 2 forms on the edit page
+Route::get('companies/image/{id}', 'CompanyController@removeImage')->name('companies.removeImage');;
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

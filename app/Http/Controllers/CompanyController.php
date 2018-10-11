@@ -76,7 +76,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Companies::find($id);
+        return view('companies.edit', ['company' => $company]);
     }
 
     /**
@@ -88,7 +89,27 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'company_name'=>'required',
+            'company_logo'=> 'nullable|image|mimes:jpeg,jpg,bmp,png|dimensions:min_width=100,min_height=100',
+            'company_email' => 'nullable|email',
+            'company_website' => 'nullable|url'
+        ]);
+
+        //$path = is_null(request()->company_logo) ? request()->company_logo : Storage::putFile('', new File(request()->company_logo));
+
+        $company = Companies::find($id);
+
+        $company->name = $request->get('company_name');
+
+        // !!!!! Add logic to handle image
+
+        //$company->logo = $path;
+        $company->email = $request->get('company_email');
+        $company->website = $request->get('company_website');
+        $company->save();
+        
+        return redirect('/companies')->with('success', $request->get('company_name') . ' company has been updated.');
     }
 
     /**
@@ -99,6 +120,29 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = Companies::find($id);
+        $company->delete();
+
+        // !!!!! Add logic to handle image removal
+
+        return redirect('/companies')->with('success', $company->name . ' company has been deleted.');
+    }
+
+    /**
+     * Remove the specified image from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removeImage($id)
+    {
+        $company = Companies::find($id);
+        Storage::delete('/public' . $company->logo);
+        $company->logo = null;
+        $company->save();
+
+        // !!!!! Test better to check if everything is working as expected - remove from public
+
+        return view('companies.edit', ['company' => $company]);
     }
 }
