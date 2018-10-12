@@ -59,6 +59,7 @@ class CompanyController extends Controller
             'website'=> $request->get('company_website')
         ]);
         $company->save();
+
         return redirect('/companies')->with('success', 'Company has been added.');
     }
 
@@ -135,16 +136,16 @@ class CompanyController extends Controller
     public function uploadImage(Request $request, $id)
     {
         $request->validate([
-            'company_logo'=> 'image|mimes:jpeg,jpg,bmp,png|dimensions:min_width=100,min_height=100'
+            'company_logo'=> 'required|image|mimes:jpeg,jpg,bmp,png|dimensions:min_width=100,min_height=100'
         ]);
         
-        $path = is_null(request()->company_logo) ? request()->company_logo : Storage::putFile('', new File(request()->company_logo));
+        $path = Storage::putFile('', new File(request()->company_logo));
         
         $company = Companies::find($id);
         $company->logo = $path;
         $company->save();
 
-        return redirect()->route('companies.edit', ['company' => $company])->with('success', 'Logo has been uploaded.');;
+        return redirect()->route('companies.edit', ['company' => $company])->with('success', 'Logo has been uploaded.');
     }
 
     public function deleteImage($id)
@@ -154,6 +155,6 @@ class CompanyController extends Controller
         $company->logo = null;
         $company->save();
 
-        return view('companies.edit', ['company' => $company]);
+        return redirect()->route('companies.edit', ['company' => $company])->with('success', 'Logo has been deleted.');
     }
 }

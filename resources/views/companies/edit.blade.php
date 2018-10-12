@@ -9,6 +9,9 @@
                 <div class="card-header">Update company details:</div>
                     <div class="card-body">
 
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success" role="alert">{{ $message }}</div>
+                        @endif
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 @foreach ($errors->all() as $error)
