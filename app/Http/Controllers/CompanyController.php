@@ -129,19 +129,17 @@ class CompanyController extends Controller
      */
     public function uploadImage(Request $request, $id)
     {
-        $company = Companies::find($id);
-
-        // !!! To find why validation is not working here
         $request->validate([
             'company_logo'=> 'image|mimes:jpeg,jpg,bmp,png|dimensions:min_width=100,min_height=100'
         ]);
         
         $path = is_null(request()->company_logo) ? request()->company_logo : Storage::putFile('', new File(request()->company_logo));
- 
+        
+        $company = Companies::find($id);
         $company->logo = $path;
         $company->save();
 
-        return view('companies.edit', ['company' => $company]);
+        return redirect()->route('companies.edit', ['company' => $company])->with('success', 'Logo has been uploaded.');;
     }
 
     public function deleteImage($id)
