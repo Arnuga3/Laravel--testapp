@@ -9,7 +9,7 @@
         <div class="alert alert-success" role="alert">{{ $message }}</div>
     @endif
 
-    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 mb-2" role="button" aria-pressed="true">{{ __('Add new') }}</a>
+    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 ml-2 mb-2" role="button" aria-pressed="true"><span class="lnr lnr-plus-circle pr-1"></span>{{ __('Add new') }}</a>
 
     @foreach ($companies as $company)
         <div class="d-flex bg-white border-bottom">

@@ -17,12 +17,12 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->integer('company')->unsigned();
+            $table->integer('company_id')->unsigned();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->timestamps();
             // Foreign key
-            $table->foreign('company')->references('id')->on('companies');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

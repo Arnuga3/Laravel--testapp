@@ -46,9 +46,9 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('companies.index') }}">{{ __('Companies') }}</a>
+                                <a class="nav-link" href="{{ route('companies.index') }}"><span class="lnr lnr-briefcase mr-1"></span>{{ __('Companies') }}</a>
                             </li><li class="nav-item">
-                                <a class="nav-link" href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
+                                <a class="nav-link" href="{{ route('employees.index') }}"><span class="lnr lnr-users mr-1"></span> {{ __('Employees') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

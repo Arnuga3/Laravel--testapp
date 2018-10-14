@@ -38,7 +38,7 @@
                                     @endif
                                 </div>
                                 @if( empty($company->logo ))
-                                    <button type="submit" class="btn btn-outline-success">Upload</button>
+                                    <button type="submit" class="btn btn-outline-success"><span class="lnr lnr-upload pr-1"></span>Upload</button>
                                 @endif
                             </form>
 

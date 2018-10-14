@@ -12,4 +12,9 @@ class Companies extends Model
         'logo',
         'website'
     ];
+
+    public function employees()
+    {
+        return $this->hasMany('App\Employees');
+    }
 }
