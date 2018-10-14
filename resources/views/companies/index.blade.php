@@ -28,7 +28,7 @@
                 <small><span class="text-secondary">Email: </span><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></small>
             </div>
             <div class="d-flex align-items-end flex-column">
-                <form class="mt-2" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">
+                <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $company->name }} company?');" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn mt-auto text-danger"><span class="lnr lnr-trash"></span></button>

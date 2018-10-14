@@ -44,7 +44,7 @@
 
                             <!-- Delete image form -->
                             @if( !empty($company->logo ))
-                                <form class="" method="post" action="{{ route('companies.deleteImage', ['id' => $company->id]) }}">
+                                <form onsubmit="return confirm('Do you want to delete the current logo?');" method="post" action="{{ route('companies.deleteImage', ['id' => $company->id]) }}">
                                     @csrf
                                     @method('DELETE')
                 

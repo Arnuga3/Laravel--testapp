@@ -25,7 +25,7 @@
                 <small><span class="text-secondary">Phone: </span><a href="tel:{{ $employee->phone }}">{{ $employee->phone }}</a></small>
             </div>
             <div class="d-flex align-items-end flex-column">
-                <form class="mt-2" action="{{ route('employees.destroy', ['id' => $employee->id]) }}" method="post">
+                <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $employee->firstname . ' ' . $employee->lastname }}?');" action="{{ route('employees.destroy', ['id' => $employee->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn mt-auto text-danger"><span class="lnr lnr-trash"></span></button>
