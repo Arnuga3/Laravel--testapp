@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Employees;
 use App\Companies;
+use App\Qualifications;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -19,7 +20,6 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employees::paginate(10);
-    // Use join
         return view('employees.index', ['employees' => $employees]);
     }
 
@@ -83,8 +83,10 @@ class EmployeeController extends Controller
     {
         $employee = Employees::find($id);
         $companies = Companies::all();
+        $qualifications = Qualifications::all();
 
-        return view('employees.edit', ['employee' => $employee, 'companies' => $companies]);
+        return view('employees.edit', ['employee' => $employee, 'companies' => $companies,
+            'qualifications' => $qualifications]);
     }
 
     /**

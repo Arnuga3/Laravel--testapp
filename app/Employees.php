@@ -18,4 +18,10 @@ class Employees extends Model
     {
         return $this->belongsTo('App\Companies');
     }
+
+    public function qualifications()
+    {
+        return $this->belongsToMany('App\Qualifications', 'employee_qualifications', 'employee_id', 'qualification_id')->withPivot('date_achieved', 'grade');
+    }
+
 }

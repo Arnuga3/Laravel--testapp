@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Companies;
 use App\Employees;
+use App\Qualifications;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,7 @@ class HomeController extends Controller
     {
         $totalComp = Companies::count();
         $totalEmpl = Employees::count();
-        return view('home', ['totalComp' => $totalComp, 'totalEmpl' => $totalEmpl]);
+        $totalQual = Qualifications::count();
+        return view('home', ['totalComp' => $totalComp, 'totalEmpl' => $totalEmpl, 'totalQual' => $totalQual]);
     }
 }

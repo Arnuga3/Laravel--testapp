@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <a class="btn btn-light mb-3" href="{{ route('employees.index') }}"><span class="lnr lnr-chevron-left pr-2"></span>Go back</a>
             <div class="card">
-                <div class="card-header">
-                    Update employee details:
+                <div class="card-header bg-primary text-white font-weight-bold">
+                    Employee's details:
                 </div>
             
                 <form method="post" action="{{ route('employees.update', ['id' => $employee->id]) }}">
@@ -27,20 +27,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="c-firstname">First Name</label>
-                                    <input type="text" class="form-control" id="c-firstname" placeholder="required" name="employee_firstname" value="{{ $employee->firstname }}">
+                                    <label for="e-firstname">First Name</label>
+                                    <input type="text" class="form-control" id="e-firstname" placeholder="required" name="employee_firstname" value="{{ $employee->firstname }}">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="c-lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="c-lastname" placeholder="required" name="employee_lastname" value="{{ $employee->lastname }}">
+                                    <label for="e-lastname">Last Name</label>
+                                    <input type="text" class="form-control" id="e-lastname" placeholder="required" name="employee_lastname" value="{{ $employee->lastname }}">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="c-employee">Company</label>
-                            <select class="form-control" id="c-employee" name="employee_company">
+                            <label for="e-employee">Company</label>
+                            <select class="form-control" id="e-employee" name="employee_company">
                                 @foreach ($companies as $company)
 
                                     @if( $employee->company_id == $company->id)
@@ -53,19 +53,82 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="c-email">Email</label>
-                            <input type="text" class="form-control" id="c-website" placeholder="optional" name="employee_email" value="{{ $employee->email }}">
+                            <label for="e-email">Email</label>
+                            <input type="text" class="form-control" id="e-website" placeholder="optional" name="employee_email" value="{{ $employee->email }}">
                         </div>
                         <div class="form-group">
-                            <label for="c-phone">Phone</label>
-                            <input type="text" class="form-control" id="c-phone" placeholder="optional" name="employee_phone" value="{{ $employee->phone }}">
+                            <label for="e-phone">Phone</label>
+                            <input type="text" class="form-control" id="e-phone" placeholder="optional" name="employee_phone" value="{{ $employee->phone }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        
                     </div>
 
                 </form>
 
+                <div class="modal" tabindex="-1" id="qualificationModal" role="dialog" aria-labelledby="qualificationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">New qualification</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="">
+                                    @csrf
+                                    @method('POST')
+
+                                    <div class="form-group">
+                                        <label for="e-qualification">Qualifications</label>
+                                        <select class="form-control" id="e-qualification" name="employee_qualification">
+                                            @foreach ($qualifications as $qualification)
+                                                    <option value="{{ $qualification->id }}">{{ $qualification->title }}</option>   
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="e-date">Date achived</label>
+                                        <input type="text" class="form-control" id="e-date" placeholder="optional" name="q_date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="e-grade">Grade</label>
+                                        <input type="text" class="form-control" id="e-grade" placeholder="optional" name="q_grade">
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-success">Add</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card-footer">
+                    <ul class="list-group list-group-flush mt-2">
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
+                            <span class="font-weight-bold">Employee's qualifications:</span>
+                        </li>
+                        @foreach ($employee->qualifications as $qualification)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{ $qualification->title }}<br>{{$qualification->pivot->grade }} <br> {{ date('d-m-Y', strtotime($qualification->pivot->date_achieved)) }}</span>
+                                <span>
+                                    <form onsubmit="return confirm('Do you want to delete {{ $qualification->title }} qualification?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn text-danger"><span class="lnr lnr-trash"></span></button>
+                                    </form>
+                                    <a class="btn text-secondary" href="{{ route('qualifications.edit', ['id' => $qualification->id]) }}"><span class="lnr lnr-pencil"></span></a>
+                                </span>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn btn-secondary mb-2 mt-2 float-right" data-toggle="modal" data-target="#qualificationModal">
+                        <span class="lnr lnr-plus-circle pr-1"></span>
+                        Add Qualification
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>

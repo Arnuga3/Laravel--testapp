@@ -23,7 +23,9 @@ Route::get('/admin', function () {
 // CRUD Routes
 Route::resources([
     'companies' => 'CompanyController',
-    'employees' => 'EmployeeController'
+    'employees' => 'EmployeeController',
+    'qualifications' => 'QualificationsController',
+    'employee_qualifications' => 'EmployeeQualificationsController'
 ]);
 
 // Additional routes to upload/delete images

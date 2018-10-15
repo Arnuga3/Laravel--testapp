@@ -6,8 +6,8 @@
 <p>composer dump-autoload</p>
 <p>php artisan db:seed</p>
 <p>php artisan migrate:refresh --seed</p>
-<p>php artisan make:model Companies.php -m</p>
-<p>php artisan make:model Employees.php -m</p>
+<p>php artisan make:model Companies -m</p>
+<p>php artisan make:model Employees -m</p>
 <p>php artisan make:controller CompanyController --resource</p>
 <p>php artisan make:controller EmployeeController --resource</p>
 <p>php artisan storage:link</p>

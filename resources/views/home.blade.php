@@ -23,6 +23,10 @@
                             <a href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
                             <span class="badge badge-primary badge-pill">{{ $totalEmpl }}</span>
                         </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="{{ route('qualifications.index') }}">{{ __('Qualifications') }}</a>
+                            <span class="badge badge-primary badge-pill">{{ $totalQual }}</span>
+                        </li>
                     </ul>
 
                 </div>
