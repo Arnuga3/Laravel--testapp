@@ -10472,10 +10472,10 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.imageWrapper {
+.imageWrapper-lg {
   background-color: rgba(0, 0, 0, 0.05);
-  height: 75px;
-  width: 75px;
+  height: 100px;
+  width: 100px;
   margin: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10488,8 +10488,29 @@ a.text-dark:focus {
           justify-content: center;
 }
 
-.imageWrapper img {
-  max-width: 75px;
-  max-height: 75px;
+.imageWrapper-lg img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.imageWrapper-sm {
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 50px;
+  width: 50px;
+  margin: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.imageWrapper-sm img {
+  max-width: 50px;
+  max-height: 50px;
 }
 

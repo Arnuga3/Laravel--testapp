@@ -3,18 +3,21 @@
 @section('content')
 <div class="container">
     
-    <h3>A list of Companies</h3>
+    <h3>List of Companies</h3>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success" role="alert">{{ $message }}</div>
     @endif
 
-    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 ml-2 mb-2" role="button" aria-pressed="true"><span class="lnr lnr-plus-circle pr-1"></span>{{ __('Add new') }}</a>
+    <a href="{{ route('companies.create') }}" class="btn btn-primary btn-sm mt-3 ml-2 mb-2" role="button" aria-pressed="true">
+        <span class="lnr lnr-plus-circle pr-1"></span>
+        {{ __('Add new') }}
+    </a>
 
     @foreach ($companies as $company)
         <div class="d-flex bg-white border-bottom">
             <div class="p-2 flex-shrink-1 align-self-center">
-                <div class="imageWrapper rounded">
+                <div class="imageWrapper-lg rounded">
                     @if( empty($company->logo ))
                         <span class="lnr lnr-picture text-secondary"></span>
                     @else
@@ -24,8 +27,14 @@
             </div>
             <div class="p-2 w-100 d-flex flex-column align-self-center">
                 <h5>{{ $company->name }}</h5>
-                <small class="text-secondary">Website: <a href="{{ $company->website }}">{{ $company->website }}</a></small>
-                <small><span class="text-secondary">Email: </span><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></small>
+                <small class="text-secondary">
+                    <span class="lnr lnr-earth text-secondary"></span>
+                    <a href="{{ $company->website }}">{{ $company->website }}</a>
+                </small>
+                <small>
+                    <span class="lnr lnr-envelope text-secondary"></span>
+                    <a href="mailto:{{ $company->email }}">{{ $company->email }}</a>
+                </small>
             </div>
             <div class="d-flex align-items-end flex-column">
                 <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $company->name }} company?');" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Companies;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\File;
 
 class CompanyController extends Controller
@@ -59,6 +60,14 @@ class CompanyController extends Controller
             'website'=> $request->get('company_website')
         ]);
         $company->save();
+
+        //Basic email notification after a new company is getting created
+        Mail::send([], [], function ($message) {
+            $message->to('arniszelcs@gmail.com')
+              ->subject('New company')
+              ->setBody('<h4 style="font-family:sans-serif;">Notification:</h4>
+                        <p style="font-family:sans-serif;">A new company - ' . request()->company_name . ' - has been just created.</p>', 'text/html');
+        });
 
         return redirect('/companies')->with('success', 'Company has been added.');
     }

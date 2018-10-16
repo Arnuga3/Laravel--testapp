@@ -11,6 +11,7 @@
 <p>php artisan make:controller CompanyController --resource</p>
 <p>php artisan make:controller EmployeeController --resource</p>
 <p>php artisan storage:link</p>
+<p>composer require guzzlehttp/guzzle</p>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>

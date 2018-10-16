@@ -12,6 +12,6 @@ class Qualifications extends Model
 
     public function employees()
     {
-        return $this->belongsToMany('App\Employees', 'employee_qualifications', 'qualification_id', 'employee_id');
+        return $this->belongsToMany('App\Employees', 'employee_qualifications', 'qualification_id', 'employee_id')->withPivot('date_achieved', 'grade');
     }
 }

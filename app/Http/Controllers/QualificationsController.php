@@ -61,7 +61,10 @@ class QualificationsController extends Controller
      */
     public function show($id)
     {
-        //
+        $qualification = Qualifications::find($id);
+        $employeesWithQualification = $qualification->employees($id)->paginate(10);
+
+        return view('qualifications.show', ['employees' => $employeesWithQualification, 'qualification' => $qualification]);
     }
 
     /**

@@ -13,17 +13,28 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-$imgSize: 75px;
-
-.imageWrapper {
-	background-color: rgba(0,0,0,.05);
-	height: $imgSize;
-	width: $imgSize;
-	margin: 3px;
-	display: flex;
+@mixin imageWrap($imgSize) {
+  background-color: rgba(0,0,0,.05);
+  height: $imgSize;
+  width: $imgSize;
+  margin: 3px;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
 
+$imgSize: 100px;
+.imageWrapper-lg {
+	@include imageWrap($imgSize);
+  img {
+    max-width: $imgSize;
+    max-height: $imgSize;
+  }
+}
+
+$imgSize: 50px;
+.imageWrapper-sm {
+	@include imageWrap($imgSize);
   img {
     max-width: $imgSize;
     max-height: $imgSize;

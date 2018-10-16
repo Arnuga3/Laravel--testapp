@@ -66,7 +66,7 @@
 
                 </form>
 
-                <!-- Modal with a form for the employee qualification table -->
+                <!-- Modal (add) with a form for the employee qualification table -->
                 <div class="modal" tabindex="-1" id="qualificationModal" role="dialog" aria-labelledby="qualificationModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -79,8 +79,8 @@
                             <div class="modal-body">
                                 <form method="post" action="{{ route('employees.addQualification', ['id' => $employee->id]) }}">
                                     @csrf
-                                    @method('PUT')
-                                    
+                                    @method('POST')
+
                                     <div class="form-group">
                                         <label for="e-qualification">Qualifications</label>
                                         <select class="form-control" id="e-qualification" name="qualification_id">
@@ -126,7 +126,6 @@
                                         @method('DELETE')
                                         <button class="btn text-danger"><span class="lnr lnr-trash"></span></button>
                                     </form>
-                                    <a class="btn text-secondary" href="{{ route('qualifications.edit', ['id' => $qualification->id]) }}"><span class="lnr lnr-pencil"></span></a>
                                 </span>
                             </li>
                         @endforeach
