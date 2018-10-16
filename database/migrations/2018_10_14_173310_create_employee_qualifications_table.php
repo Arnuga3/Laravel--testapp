@@ -20,6 +20,7 @@ class CreateEmployeeQualificationsTable extends Migration
             $table->string('grade');
             $table->timestamps();
             $table->primary(['employee_id', 'qualification_id']);
+            //$table->foreign('qualification_id')->references('id')->on('qualifications')->onDelete('cascade');
         });
     }
 

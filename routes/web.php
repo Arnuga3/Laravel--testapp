@@ -24,13 +24,16 @@ Route::get('/admin', function () {
 Route::resources([
     'companies' => 'CompanyController',
     'employees' => 'EmployeeController',
-    'qualifications' => 'QualificationsController',
-    'employee_qualifications' => 'EmployeeQualificationsController'
+    'qualifications' => 'QualificationsController'
 ]);
 
 // Additional routes to upload/delete images
 Route::put('companies/image/{id}', 'CompanyController@uploadImage')->name('companies.uploadImage');
 Route::delete('companies/image/{id}', 'CompanyController@deleteImage')->name('companies.deleteImage');
+
+// Additional routes to add/delete qualifications
+Route::put('employees/{id}/qualification', 'EmployeeController@addQualification')->name('employees.addQualification');
+Route::delete('employees/{employee_id}/qualification/{qualification_id}', 'EmployeeController@deleteQualification')->name('employees.deleteQualification');
 
 Auth::routes();
 

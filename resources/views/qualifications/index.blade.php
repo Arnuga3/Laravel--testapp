@@ -15,7 +15,7 @@
         <div class="d-flex bg-white border-bottom">
             <div class="p-2 flex-shrink-1 align-self-center">
                 <div class="imageWrapper rounded">
-                    <span class="lnr lnr-user text-graduation-hat"></span>
+                    <span class="lnr lnr-graduation-hat text-secondary"></span>
                 </div>
             </div>
             <div class="p-2 w-100 d-flex flex-column align-self-center">

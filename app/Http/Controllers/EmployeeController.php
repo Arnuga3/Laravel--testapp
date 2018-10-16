@@ -131,4 +131,36 @@ class EmployeeController extends Controller
 
         return redirect('/employees')->with('success', 'Record has been deleted.');
     }
+
+    public function addQualification(Request $request, $id)
+    {
+        $request->validate([
+            'qualification_id' => 'required|integer',
+            'date_achieved' => 'required|date',
+            'grade' => 'required|string'
+        ]);
+
+        // Using attach method
+        $employee = Employees::find($id);
+        $employee->qualifications()->attach($request->get('qualification_id'), ['date_achieved' => $request->get('date_achieved'), 'grade' => $request->get('grade')]);
+
+        /*
+        Alternative way
+        $employee_qualifications = new EmployeeQualifications([
+            'qualification_id' => $request->get('qualification_id'),
+            'date_achieved' => $request->get('date_achieved'),
+            'grade' => $request->get('grade')
+        ]);
+        $employee_qualifications->save();*/
+
+        return redirect()->route('employees.edit', ['id' => $employee->id])->with('success', 'Qualification has been added.');
+    }
+
+    public function deleteQualification($employee_id, $qualification_id)
+    {
+        $employee = Employees::find($employee_id);
+        $employee->qualifications()->detach($qualification_id);
+
+        return redirect()->route('employees.edit', ['id' => $employee->id])->with('success', 'Qualification has been deleted.');
+    }
 }

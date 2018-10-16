@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <a class="btn btn-light mb-3" href="{{ route('qualifications.index') }}"><span class="lnr lnr-chevron-left pr-2"></span>Go back</a>
             <div class="card">
                 <div class="card-header">New qualification details:</div>
 
@@ -26,7 +27,7 @@
                             <input type="text" class="form-control" id="q-title" placeholder="required" name="qualifications_title">
                         </div>
                          
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
 
                 </form>

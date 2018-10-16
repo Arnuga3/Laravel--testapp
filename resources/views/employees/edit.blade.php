@@ -66,35 +66,37 @@
 
                 </form>
 
+                <!-- Modal with a form for the employee qualification table -->
                 <div class="modal" tabindex="-1" id="qualificationModal" role="dialog" aria-labelledby="qualificationModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">New qualification</h5>
+                                <h5 class="modal-title">New Employee's qualification</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="post" action="">
+                                <form method="post" action="{{ route('employees.addQualification', ['id' => $employee->id]) }}">
                                     @csrf
-                                    @method('POST')
-
+                                    @method('PUT')
+                                    
                                     <div class="form-group">
                                         <label for="e-qualification">Qualifications</label>
-                                        <select class="form-control" id="e-qualification" name="employee_qualification">
-                                            @foreach ($qualifications as $qualification)
-                                                    <option value="{{ $qualification->id }}">{{ $qualification->title }}</option>   
+                                        <select class="form-control" id="e-qualification" name="qualification_id">
+                                            <!-- Display only qualifications that an employee doesn't have -->
+                                            @foreach ($qualifications->diff($employee->qualifications)->all() as $qualification)
+                                                <option value="{{ $qualification->id }}">{{ $qualification->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="e-date">Date achived</label>
-                                        <input type="text" class="form-control" id="e-date" placeholder="optional" name="q_date">
+                                        <input type="date" class="form-control" id="e-date" name="date_achieved">
                                     </div>
                                     <div class="form-group">
                                         <label for="e-grade">Grade</label>
-                                        <input type="text" class="form-control" id="e-grade" placeholder="optional" name="q_grade">
+                                        <input type="text" class="form-control" id="e-grade" placeholder="required" name="grade">
                                     </div>
                                     <button type="submit" class="btn btn-outline-success">Add</button>
 
@@ -103,17 +105,23 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal end -->
 
                 <div class="card-footer">
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success" role="alert">{{ $message }}</div>
+                    @endif
+
                     <ul class="list-group list-group-flush mt-2">
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
-                            <span class="font-weight-bold">Employee's qualifications:</span>
+                            <span class="font-weight-bold">Employee's qualifications ({{ $employee->qualifications->count() }})</span>
                         </li>
                         @foreach ($employee->qualifications as $qualification)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <span>{{ $qualification->title }}<br>{{$qualification->pivot->grade }} <br> {{ date('d-m-Y', strtotime($qualification->pivot->date_achieved)) }}</span>
                                 <span>
-                                    <form onsubmit="return confirm('Do you want to delete {{ $qualification->title }} qualification?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
+                                    <form onsubmit="return confirm('Do you want to delete {{ $qualification->title }} qualification?');" action="{{ route('employees.deleteQualification', ['employee_id' => $employee->id, 'qualification_id' => $qualification->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn text-danger"><span class="lnr lnr-trash"></span></button>
