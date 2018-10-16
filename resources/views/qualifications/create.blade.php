@@ -23,7 +23,7 @@
                         @endif
 
                         <div class="form-group">
-                            <label for="q-title">First Name</label>
+                            <label for="q-title">Title</label>
                             <input type="text" class="form-control" id="q-title" placeholder="required" name="qualifications_title">
                         </div>
                          
