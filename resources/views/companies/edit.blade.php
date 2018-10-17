@@ -4,7 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a class="btn btn-light mb-3" href="{{ route('companies.index') }}"><span class="lnr lnr-chevron-left pr-2"></span>Go back</a>
+
+            <a class="btn btn-light mb-3" href="{{ route('companies.index') }}">
+                <span class="lnr lnr-chevron-left pr-2"></span>
+                Go back
+            </a>
+
             <div class="card">
                 <div class="card-header">Update company details:</div>
                     <div class="card-body">
@@ -38,7 +43,10 @@
                                     @endif
                                 </div>
                                 @if( empty($company->logo ))
-                                    <button type="submit" class="btn btn-outline-success"><span class="lnr lnr-upload pr-1"></span>Upload</button>
+                                    <button type="submit" class="btn btn-outline-success">
+                                        <span class="lnr lnr-upload pr-1"></span>
+                                        Upload
+                                    </button>
                                 @endif
                             </form>
 

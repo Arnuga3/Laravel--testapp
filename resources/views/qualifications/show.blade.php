@@ -4,7 +4,10 @@
 <div class="container">
     
     <h3>List of employees - {{ $qualification->title }}</h3>
-    <a class="btn btn-light mb-2 mt-2" href="{{ route('qualifications.index') }}"><span class="lnr lnr-chevron-left pr-2"></span>Go back</a>
+    <a class="btn btn-light mb-2 mt-2" href="{{ route('qualifications.index') }}">
+        <span class="lnr lnr-chevron-left pr-2"></span>
+        Go back
+    </a>
             
     @foreach ($employees as $employee)
         <div class="d-flex bg-white border-bottom">

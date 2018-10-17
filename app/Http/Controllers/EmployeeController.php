@@ -140,18 +140,8 @@ class EmployeeController extends Controller
             'grade' => 'required|string'
         ]);
 
-        // Using attach method
         $employee = Employees::find($id);
         $employee->qualifications()->attach($request->get('qualification_id'), ['date_achieved' => $request->get('date_achieved'), 'grade' => $request->get('grade')]);
-
-        /*
-        Alternative way
-        $employee_qualifications = new EmployeeQualifications([
-            'qualification_id' => $request->get('qualification_id'),
-            'date_achieved' => $request->get('date_achieved'),
-            'grade' => $request->get('grade')
-        ]);
-        $employee_qualifications->save();*/
 
         return redirect()->route('employees.edit', ['id' => $employee->id])->with('success', 'Qualification has been added.');
     }

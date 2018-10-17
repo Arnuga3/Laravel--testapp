@@ -43,6 +43,7 @@
                 <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $employee->firstname . ' ' . $employee->lastname }}?');" action="{{ route('employees.destroy', ['id' => $employee->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
+                    
                     <button class="btn mt-auto text-danger">
                         <span class="lnr lnr-trash"></span>
                     </button>

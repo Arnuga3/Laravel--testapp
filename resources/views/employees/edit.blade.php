@@ -4,7 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a class="btn btn-light mb-3" href="{{ route('employees.index') }}"><span class="lnr lnr-chevron-left pr-2"></span>Go back</a>
+
+            <a class="btn btn-light mb-3" href="{{ route('employees.index') }}">
+                <span class="lnr lnr-chevron-left pr-2"></span>
+                Go back
+            </a>
+
             <div class="card">
                 <div class="card-header bg-primary text-white font-weight-bold">
                     Employee's details:
@@ -124,7 +129,10 @@
                                     <form onsubmit="return confirm('Do you want to delete {{ $qualification->title }} qualification?');" action="{{ route('employees.deleteQualification', ['employee_id' => $employee->id, 'qualification_id' => $qualification->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn text-danger"><span class="lnr lnr-trash"></span></button>
+                                        
+                                        <button class="btn text-danger">
+                                            <span class="lnr lnr-trash"></span>
+                                        </button>
                                     </form>
                                 </span>
                             </li>

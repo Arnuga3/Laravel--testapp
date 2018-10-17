@@ -8,17 +8,18 @@
                 <div class="card-header">New company details:</div>
 
                 <form method="post" action="{{ route('companies.store') }}" enctype="multipart/form-data">
-
-                    @csrf
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <div>{{ $error }}</div>
-                            @endforeach
-                        </div>
-                    @endif
                     
                     <div class="card-body">
+
+                        @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
+                        
                         <div class="form-group">
                             <label for="c-logo">Logo (min size 100x100)</label>
                             <input type="file" class="form-control-file" id="c-logo" name="company_logo">

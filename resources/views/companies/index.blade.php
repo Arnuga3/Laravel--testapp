@@ -40,9 +40,14 @@
                 <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $company->name }} company?');" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="btn mt-auto text-danger"><span class="lnr lnr-trash"></span></button>
+
+                    <button class="btn mt-auto text-danger">
+                        <span class="lnr lnr-trash"></span>
+                    </button>
                 </form>
-                <a class="btn mt-auto text-secondary" href="{{ route('companies.edit', ['id' => $company->id]) }}"><span class="lnr lnr-pencil"></span></a>
+                <a class="btn mt-auto text-secondary" href="{{ route('companies.edit', ['id' => $company->id]) }}">
+                    <span class="lnr lnr-pencil"></span>
+                </a>
             </div>
         </div>
     @endforeach
