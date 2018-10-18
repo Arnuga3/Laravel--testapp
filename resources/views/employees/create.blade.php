@@ -4,8 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <a class="btn btn-light mb-3" href="{{ route('employees.index') }}">
+                <span class="lnr lnr-chevron-left pr-2"></span>
+                Go back
+            </a>
+
             <div class="card">
-                <div class="card-header">New employee details:</div>
+                <div class="card-header bg-primary text-white font-weight-bold">New employee details:</div>
 
                 <form method="post" action="{{ route('employees.store') }}">
                     @csrf

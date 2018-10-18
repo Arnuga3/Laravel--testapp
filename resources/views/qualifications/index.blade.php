@@ -25,14 +25,19 @@
                 <h5>{{ $qualification->title }}</h5>
                 <div class="d-flex flex-row">
                     <small class="text-secondary">{{ $qualification->employees->count() }} qualification holder(s)  &nbsp;</small>
-                    <small class="text-secondary"><a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">See holders..</a></small>
+                    <small class="text-secondary">
+                        <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">
+                            <span class="lnr lnr-chevron-right-circle"></span>
+                            See holders
+                        </a>
+                    </small>
                 </div>
             </div>
             <div class="d-flex align-items-end flex-column">
                 <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $qualification->title }}?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    
+
                     <button class="btn mt-auto text-danger">
                         <span class="lnr lnr-trash"></span>
                     </button>

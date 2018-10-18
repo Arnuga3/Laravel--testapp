@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand text-white" href="{{ url('/home') }}">
+                    {{ config('app.name', 'TestApp') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -46,13 +46,13 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('companies.index') }}"><span class="lnr lnr-briefcase mr-1"></span>{{ __('Companies') }}</a>
+                                <a class="nav-link" href="{{ route('companies.index') }}"><span class="lnr lnr-apartment text-white mr-1"></span>{{ __('Companies') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employees.index') }}"><span class="lnr lnr-users mr-1"></span>{{ __('Employees') }}</a>
+                                <a class="nav-link" href="{{ route('employees.index') }}"><span class="lnr lnr-users text-white mr-1"></span>{{ __('Employees') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('qualifications.index') }}"><span class="lnr lnr-graduation-hat mr-1"></span>{{ __('Qualifications') }}</a>
+                                <a class="nav-link" href="{{ route('qualifications.index') }}"><span class="lnr lnr-graduation-hat text-white mr-1"></span>{{ __('Qualifications') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

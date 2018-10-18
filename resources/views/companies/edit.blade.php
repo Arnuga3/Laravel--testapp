@@ -11,7 +11,7 @@
             </a>
 
             <div class="card">
-                <div class="card-header">Update company details:</div>
+                <div class="card-header bg-primary text-white font-weight-bold">Update company details:</div>
                     <div class="card-body">
 
                         @if ($message = Session::get('success'))
@@ -36,7 +36,7 @@
                                     <input type="file" class="form-control-file" id="c-logo" name="company_logo">
                                     @if( !empty($company->logo ))
                                         <div class="d-flex flex-row">
-                                            <div class="imageWrapper rounded mt-4">
+                                            <div class="imageWrapper-lg rounded mt-4">
                                                 <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }}" />
                                             </div>
                                         </div>

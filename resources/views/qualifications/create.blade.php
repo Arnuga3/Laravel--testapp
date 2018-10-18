@@ -9,9 +9,9 @@
                 <span class="lnr lnr-chevron-left pr-2"></span>
                 Go back
             </a>
-            
+
             <div class="card">
-                <div class="card-header">New qualification details:</div>
+                <div class="card-header bg-primary text-white font-weight-bold">New qualification details:</div>
 
                 <form method="post" action="{{ route('qualifications.store') }}">
                     @csrf

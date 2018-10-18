@@ -9,7 +9,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: rgb(17, 88, 136);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -26,7 +26,7 @@
 $imgSize: 100px;
 .imageWrapper-lg {
 	@include imageWrap($imgSize);
-  img {
+  > img {
     max-width: $imgSize;
     max-height: $imgSize;
   }
@@ -35,7 +35,7 @@ $imgSize: 100px;
 $imgSize: 50px;
 .imageWrapper-sm {
 	@include imageWrap($imgSize);
-  img {
+  > img {
     max-width: $imgSize;
     max-height: $imgSize;
   }

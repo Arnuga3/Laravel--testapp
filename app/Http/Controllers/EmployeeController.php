@@ -135,13 +135,13 @@ class EmployeeController extends Controller
     public function addQualification(Request $request, $id)
     {
         $request->validate([
-            'qualification_id' => 'required|integer',
+            'qualification_name' => 'required|integer',
             'date_achieved' => 'required|date',
             'grade' => 'required|string'
         ]);
 
         $employee = Employees::find($id);
-        $employee->qualifications()->attach($request->get('qualification_id'), ['date_achieved' => $request->get('date_achieved'), 'grade' => $request->get('grade')]);
+        $employee->qualifications()->attach($request->get('qualification_name'), ['date_achieved' => $request->get('date_achieved'), 'grade' => $request->get('grade')]);
 
         return redirect()->route('employees.edit', ['id' => $employee->id])->with('success', 'Qualification has been added.');
     }

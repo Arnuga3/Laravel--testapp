@@ -18,7 +18,12 @@
             </div>
             <div class="p-2 w-100 d-flex flex-column align-self-center">
                 <h5>{{ $employee->firstname . ' ' . $employee->lastname}}</h5>
-                <small class="text-secondary">Company: {{ $employee->company->name }}</small>
+                <small class="text-secondary">
+                    <a href="{{ route('employees.edit', ['id' => $employee->id]) }}">
+                        <span class="lnr lnr-chevron-right-circle"></span>
+                        See profile
+                    </a>
+                </small>
             </div>
         </div>
     @endforeach

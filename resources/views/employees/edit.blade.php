@@ -88,7 +88,7 @@
 
                                     <div class="form-group">
                                         <label for="e-qualification">Qualifications</label>
-                                        <select class="form-control" id="e-qualification" name="qualification_id">
+                                        <select class="form-control" id="e-qualification" name="qualification_name">
                                             <!-- Display only qualifications that an employee doesn't have -->
                                             @foreach ($qualifications->diff($employee->qualifications)->all() as $qualification)
                                                 <option value="{{ $qualification->id }}">{{ $qualification->title }}</option>
@@ -129,7 +129,7 @@
                                     <form onsubmit="return confirm('Do you want to delete {{ $qualification->title }} qualification?');" action="{{ route('employees.deleteQualification', ['employee_id' => $employee->id, 'qualification_id' => $qualification->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        
+
                                         <button class="btn text-danger">
                                             <span class="lnr lnr-trash"></span>
                                         </button>

@@ -4,8 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <a class="btn btn-light mb-3" href="{{ route('companies.index') }}">
+                <span class="lnr lnr-chevron-left pr-2"></span>
+                Go back
+            </a>
+
             <div class="card">
-                <div class="card-header">New company details:</div>
+                <div class="card-header bg-primary text-white font-weight-bold">New company details:</div>
 
                 <form method="post" action="{{ route('companies.store') }}" enctype="multipart/form-data">
                     
@@ -19,7 +25,7 @@
                                 @endforeach
                             </div>
                         @endif
-                        
+
                         <div class="form-group">
                             <label for="c-logo">Logo (min size 100x100)</label>
                             <input type="file" class="form-control-file" id="c-logo" name="company_logo">
