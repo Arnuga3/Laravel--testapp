@@ -12,8 +12,8 @@
 </div>
 
 <div class="container">
-    <div class="row mb-4">
-        <div class="col-sm-4">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-4">
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
@@ -25,7 +25,7 @@
             </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4 mb-4">
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
@@ -37,7 +37,7 @@
             </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4 mb-4">
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
