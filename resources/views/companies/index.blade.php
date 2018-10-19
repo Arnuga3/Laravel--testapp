@@ -42,8 +42,9 @@
                     </small>
                 @endif
                 <small>
+                    <span class="lnr lnr-users"></span>
+                    <a href="{{ route('companies.show', ['id' => $company->id]) }}">{{ __('Employees') }}</a>
                     <span class="badge">{{ $company->employees->count() }}</span>
-                    {{ __('Employees') }}
                 </small>
             </div>
             <div class="d-flex align-items-end flex-column">

@@ -59,7 +59,7 @@ class EmployeeController extends Controller
         ]);
         $employee->save();
 
-        return redirect('/employees')->with('success', 'Employee has been added.');
+        return redirect('/employees')->with('success', 'Employee - ' . $employee->firstname . ' ' . $employee->lastname . ' has been added.');
     }
 
     /**
@@ -115,7 +115,7 @@ class EmployeeController extends Controller
         $employee->phone = $request->get('company_phone');
         $employee->save();
         
-        return redirect('/employees')->with('success', 'Record has been updated.');
+        return redirect('/employees')->with('success', 'Record of ' . $employee->firstname . ' ' . $employee->lastname . 'has been updated.');
     }
 
     /**
@@ -129,12 +129,13 @@ class EmployeeController extends Controller
         $employee = Employees::find($id);
         $employee->delete();
 
-        return redirect('/employees')->with('success', 'Record has been deleted.');
+        return redirect('/employees')->with('success', 'Record of ' . $employee->firstname . ' ' . $employee->lastname . 'has been deleted.');
     }
 
     public function addQualification(Request $request, $id)
     {
         $request->validate([
+            // Qualification name is used instead qualification id to improve the error msg (actual vaue - id)
             'qualification_name' => 'required|integer',
             'date_achieved' => 'required|date',
             'grade' => 'required|string'

@@ -80,7 +80,9 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Companies::find($id);
+        $companyEmployees = $company->employees()->paginate(10);
+        return view('companies.show', ['companyEmployees' => $companyEmployees, 'company' => $company]);
     }
 
     /**

@@ -11,7 +11,10 @@
             </a>
 
             <div class="card">
-                <div class="card-header">Update company details:</div>
+                <div class="card-header">
+                    <span class="lnr lnr-paperclip"></span>
+                    Company details:
+                </div>
                     <div class="card-body">
 
                         @if ($message = Session::get('success'))

@@ -12,7 +12,8 @@
 
             <div class="card">
                 <div class="card-header">
-                    Employee's details:
+                    <span class="lnr lnr-paperclip"></span>
+                    Employee details:
                 </div>
             
                 <form method="post" action="{{ route('employees.update', ['id' => $employee->id]) }}">
@@ -120,7 +121,10 @@
 
                     <ul class="list-group list-group-flush mt-2">
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
-                            <span class="font-weight-bold">Employee's qualifications ({{ $employee->qualifications->count() }})</span>
+                            <span class="font-weight-bold">
+                                <span class="lnr lnr-graduation-hat pr-2"></span>
+                                Employee's qualifications ({{ $employee->qualifications->count() }})
+                            </span>
                         </li>
                         @foreach ($employee->qualifications as $qualification)
                             <li class="list-group-item d-flex justify-content-between align-items-center">

@@ -50,7 +50,7 @@ class QualificationsController extends Controller
         ]);
         $qualification->save();
 
-        return redirect('/qualifications')->with('success', 'Qualification has been added.');
+        return redirect('/qualifications')->with('success', $qualification->title . ' qualification has been added.');
     }
 
     /**
@@ -98,7 +98,7 @@ class QualificationsController extends Controller
         $qualification->title = $request->get('qualifications_title');
         $qualification->save();
         
-        return redirect('/qualifications')->with('success', 'Record has been updated.');
+        return redirect('/qualifications')->with('success', $qualification->title . ' qualification has been updated.');
     }
 
     /**
@@ -112,6 +112,6 @@ class QualificationsController extends Controller
         $qualification = Qualifications::find($id);
         $qualification->delete();
 
-        return redirect('/qualifications')->with('success', 'Record has been deleted.');
+        return redirect('/qualifications')->with('success', $qualification->title . ' qualification has been deleted.');
     }
 }

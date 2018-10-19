@@ -21,17 +21,13 @@
                     <span class="lnr lnr-graduation-hat text-secondary"></span>
                 </div>
             </div>
-            <div class="p-2 w-100 align-self-center">
+            <div class="t-details p-2 w-100 align-self-center">
                 <h5>{{ $qualification->title }}</h5>
-                <div>
-                    <small>
-                        <span class="badge">{{ $qualification->employees->count() }}</span>
-                    </small>
-                    <small>Holder(s)</small>
-                    <small>
-                        <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">Show all</a>
-                    </small>
-                </div>
+                <small>
+                    <span class="lnr lnr-users"></span>
+                    <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">{{ __('Holders') }}</a>
+                    <span class="badge">{{ $qualification->employees->count() }}</span>
+                </small>
             </div>
             <div class="d-flex align-items-end flex-column">
                 <form class="mt-2" onsubmit="return confirm('This qualification will be removed from all employees\' records! Do you want to delete {{ $qualification->title }}?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
