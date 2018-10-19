@@ -28,11 +28,11 @@
             <div class="t-details p-2 w-100 d-flex flex-column align-self-center">
                 <h5>{{ $company->name }}</h5>
                 @if($company->website)
-                <small class="t-tooltip">
-                    <span class="t-tooltiptext">{{ $company->website }}</span>
-                    <span class="lnr lnr-earth"></span>
-                    <a href="{{ $company->website }}">{{ __('Website') }}</a>
-                </small>
+                    <small class="t-tooltip">
+                        <span class="t-tooltiptext">{{ $company->website }}</span>
+                        <span class="lnr lnr-earth"></span>
+                        <a href="{{ $company->website }}">{{ __('Website') }}</a>
+                    </small>
                 @endif
                 @if($company->email)
                     <small class="t-tooltip">
@@ -41,6 +41,10 @@
                         <a href="mailto:{{ $company->email }}">{{ __('Email') }}</a>
                     </small>
                 @endif
+                <small>
+                    <span class="badge">{{ $company->employees->count() }}</span>
+                    {{ __('Employees') }}
+                </small>
             </div>
             <div class="d-flex align-items-end flex-column">
                 <form class="mt-2" onsubmit="return confirm('All employees within this company will be removed! Do you want to delete {{ $company->name }} company?');" action="{{ route('companies.destroy', ['id' => $company->id]) }}" method="post">

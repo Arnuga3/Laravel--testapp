@@ -10556,7 +10556,11 @@ a.text-dark:focus {
   color: #27aa1b;
 }
 
-.t-listItem .t-details a {
+.t-listItem .t-details small {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.t-listItem .t-details small > a {
   color: rgba(0, 0, 0, 0.3);
 }
 

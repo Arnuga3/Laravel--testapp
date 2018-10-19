@@ -24,7 +24,9 @@
             <div class="p-2 w-100 align-self-center">
                 <h5>{{ $qualification->title }}</h5>
                 <div>
-                    <small class="badge">{{ $qualification->employees->count() }}</small>
+                    <small>
+                        <span class="badge">{{ $qualification->employees->count() }}</span>
+                    </small>
                     <small>Holder(s)</small>
                     <small>
                         <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">Show all</a>

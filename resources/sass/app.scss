@@ -70,6 +70,7 @@ $imgSize: 60px;
   }
 }
 
+$t-light-grey: rgba(0,0,0,.3);
 .t-listItem {
   background-color: white;
   box-shadow: 0px 1px 4px 1px rgba(0,0,0,.05);
@@ -78,8 +79,11 @@ $imgSize: 60px;
     span.lnr {
       color: $primary;
     }
-    a {
-      color: rgba(0,0,0,.3);
+    small {
+      color: $t-light-grey;
+      > a {
+        color: $t-light-grey;
+      }
     }
   }
 }
