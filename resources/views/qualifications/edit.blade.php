@@ -11,7 +11,10 @@
             </a>
             
             <div class="card">
-                <div class="card-header">Update qualification details:</div>
+                <div class="card-header">
+                    <span class="lnr lnr-paperclip"></span>
+                    Update qualification details:
+                </div>
             
                 <form method="post" action="{{ route('qualifications.update', ['id' => $qualification->id]) }}">
                     @csrf
