@@ -11,7 +11,7 @@
             </a>
 
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">New qualification details:</div>
+                <div class="card-header">New qualification details:</div>
 
                 <form method="post" action="{{ route('qualifications.store') }}">
                     @csrf
@@ -31,12 +31,9 @@
                             <label for="q-title">Title</label>
                             <input type="text" class="form-control" id="q-title" placeholder="required" name="qualifications_title">
                         </div>
-                         
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>

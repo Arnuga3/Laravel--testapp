@@ -11,12 +11,12 @@
             </a>
 
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">New employee details:</div>
+                <div class="card-header">New employee details:</div>
 
                 <form method="post" action="{{ route('employees.store') }}">
                     @csrf
                     @method('POST')
-                    
+                
                     <div class="card-body">
 
                         @if ($errors->any())
@@ -59,9 +59,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>

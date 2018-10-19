@@ -11,9 +11,7 @@
             </a>
             
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">
-                    Update qualification details:
-                </div>
+                <div class="card-header">Update qualification details:</div>
             
                 <form method="post" action="{{ route('qualifications.update', ['id' => $qualification->id]) }}">
                     @csrf
@@ -35,10 +33,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
-
                 </form>
-
-                </div>
             </div>
         </div>
     </div>

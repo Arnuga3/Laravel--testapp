@@ -11,10 +11,9 @@
             </a>
 
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">New company details:</div>
+                <div class="card-header">New company details:</div>
 
                 <form method="post" action="{{ route('companies.store') }}" enctype="multipart/form-data">
-                    
                     <div class="card-body">
 
                         @csrf
@@ -47,9 +46,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>

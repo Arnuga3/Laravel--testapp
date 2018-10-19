@@ -15,28 +15,33 @@
     </a>
 
     @foreach ($employees as $employee)
-        <div class="d-flex bg-white border-bottom">
-            <div class="p-2 flex-shrink-1 align-self-center">
-                <div class="imageWrapper-sm rounded">
-                    <span class="lnr lnr-user text-secondary"></span>
+        <div class="t-listItem d-flex">
+            <div class="pl-3 pr-2 flex-shrink-1 align-self-center">
+                <div class="imageWrapper-sm rounded-circle">
+                    <span class="lnr lnr-user"></span>
                 </div>
             </div>
-            <div class="p-2 w-100 d-flex flex-column align-self-center">
+            <div class="t-details p-2 w-100 d-flex flex-column align-self-center">
                 <h5>{{ $employee->firstname . ' ' . $employee->lastname}}</h5>
-                <small class="text-secondary">Company: {{ $employee->company->name }}</small>
-                <div class="d-flex flex-row">
-                    <small>
-                        <span class="text-secondary">
-                            <span class="lnr lnr-envelope text-secondary"></span>
-                        </span>
-                        <a href="mailto:{{ $employee->email }}">{{ $employee->email }}</a>
+                <small>
+                    <span class="lnr lnr-apartment"></span>
+                    {{ $employee->company->name }}
+                </small>
+                <div>
+                    @if($employee->email)
+                    <small class="t-tooltip">
+                        <span class="t-tooltiptext">{{ $employee->email }}</span>
+                        <span class="lnr lnr-envelope"></span>
+                        <a href="mailto:{{ $employee->email }}">{{ __('Email') }}</a>
                     </small>
-                    <small>
-                        <span class="text-secondary">
-                            &nbsp;<span class="lnr lnr-phone-handset text-secondary"></span>
-                        </span>
-                        <a href="tel:{{ $employee->phone }}">{{ $employee->phone }}</a>
+                    @endif
+                    @if($employee->phone)
+                    <small class="t-tooltip">
+                        <span class="t-tooltiptext">{{ $employee->phone }}</span>
+                        <span class="lnr lnr-phone-handset"></span>
+                        <a href="tel:{{ $employee->phone }}">{{ __('Phone') }}</a>
                     </small>
+                    @endif
                 </div>
             </div>
             <div class="d-flex align-items-end flex-column">
@@ -44,11 +49,11 @@
                     @csrf
                     @method('DELETE')
                     
-                    <button class="btn mt-auto text-danger">
+                    <button class="btn btn-outline-danger mr-2">
                         <span class="lnr lnr-trash"></span>
                     </button>
                 </form>
-                <a class="btn mt-auto text-secondary" href="{{ route('employees.edit', ['id' => $employee->id]) }}">
+                <a class="btn btn-outline-secondary m-2" href="{{ route('employees.edit', ['id' => $employee->id]) }}">
                     <span class="lnr lnr-pencil"></span>
                 </a>
             </div>

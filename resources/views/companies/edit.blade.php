@@ -11,7 +11,7 @@
             </a>
 
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">Update company details:</div>
+                <div class="card-header">Update company details:</div>
                     <div class="card-body">
 
                         @if ($message = Session::get('success'))
@@ -86,7 +86,6 @@
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

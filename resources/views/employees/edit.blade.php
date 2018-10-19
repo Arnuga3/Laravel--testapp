@@ -11,7 +11,7 @@
             </a>
 
             <div class="card">
-                <div class="card-header bg-primary text-white font-weight-bold">
+                <div class="card-header">
                     Employee's details:
                 </div>
             
@@ -143,7 +143,6 @@
                         Add Qualification
                     </button>
                 </div>
-
             </div>
         </div>
     </div>

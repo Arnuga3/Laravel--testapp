@@ -15,7 +15,7 @@
     </a>
 
     @foreach ($qualifications as $qualification)
-        <div class="d-flex bg-white border-bottom">
+        <div class="t-listItem d-flex">
             <div class="p-2 flex-shrink-1 align-self-center">
                 <div class="imageWrapper-sm rounded">
                     <span class="lnr lnr-graduation-hat text-secondary"></span>
@@ -23,26 +23,24 @@
             </div>
             <div class="p-2 w-100 align-self-center">
                 <h5>{{ $qualification->title }}</h5>
-                <div class="d-flex flex-row">
-                    <small class="text-secondary">{{ $qualification->employees->count() }} qualification holder(s)  &nbsp;</small>
-                    <small class="text-secondary">
-                        <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">
-                            <span class="lnr lnr-chevron-right-circle"></span>
-                            See holders
-                        </a>
+                <div>
+                    <small class="badge">{{ $qualification->employees->count() }}</small>
+                    <small>Holder(s)</small>
+                    <small>
+                        <a href="{{ route('qualifications.show', ['id' => $qualification->id]) }}">Show all</a>
                     </small>
                 </div>
             </div>
             <div class="d-flex align-items-end flex-column">
-                <form class="mt-2" onsubmit="return confirm('Do you want to delete {{ $qualification->title }}?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
+                <form class="mt-2" onsubmit="return confirm('This qualification will be removed from all employees\' records! Do you want to delete {{ $qualification->title }}?');" action="{{ route('qualifications.destroy', ['id' => $qualification->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
 
-                    <button class="btn mt-auto text-danger">
+                    <button class="btn btn-outline-danger mr-2">
                         <span class="lnr lnr-trash"></span>
                     </button>
                 </form>
-                <a class="btn mt-auto text-secondary" href="{{ route('qualifications.edit', ['id' => $qualification->id]) }}">
+                <a class="btn btn-outline-secondary m-2" href="{{ route('qualifications.edit', ['id' => $qualification->id]) }}">
                     <span class="lnr lnr-pencil"></span>
                 </a>
             </div>
