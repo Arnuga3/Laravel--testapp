@@ -1,3 +1,11 @@
+## Improvements
+
+Some of the similar HTML elements are used on different pages of the app. Vue components can be used to simplify the code maintenance, and to reduce code repetition.
+
+Model names are in plural. Would be better to correct this.
+
+Would be good to have a folder with images that can be used in factory to upload test company images.
+
 ## Commands
 
 <p>composer create-project laravel/laravel testapp</p>
@@ -14,6 +22,8 @@
 <p>composer require guzzlehttp/guzzle</p>
 <p>php artisan make:factory CompaniesFactory --model=Companies</p>
 <p>php artisan make:factory EmployeesFactory --model=Employees</p>
+
+
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
