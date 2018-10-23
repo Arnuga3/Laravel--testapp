@@ -14,6 +14,8 @@
 <p>composer require guzzlehttp/guzzle</p>
 <p>php artisan make:factory CompaniesFactory --model=Companies</p>
 <p>php artisan make:factory EmployeesFactory --model=Employees</p>
+<p>php artisan make:test RootDirTest --unit</p>
+<p>./vendor/phpunit</p>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
