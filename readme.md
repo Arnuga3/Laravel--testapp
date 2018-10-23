@@ -6,6 +6,8 @@ Model names are in plural. Would be better to correct this.
 
 Would be good to have a folder with images that can be used in factory to upload test company images.
 
+Add testing.
+
 ## Commands
 
 <p>composer create-project laravel/laravel testapp</p>
