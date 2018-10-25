@@ -18,7 +18,7 @@ class QualificationsController extends Controller
      */
     public function index()
     {
-        $qualifications = Qualifications::paginate(10);
+        $qualifications = Qualifications::latest()->paginate(10);
         return view('qualifications.index', ['qualifications' => $qualifications]);
     }
 
